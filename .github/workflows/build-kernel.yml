@@ -69,7 +69,7 @@ jobs:
           cp -rvf aospa-kernel-build/android_kernel_xiaomi_sm8450/. kernel_platform/xiaomi/sm8450
           cd kernel_platform/xiaomi/sm8450
           patch -p1 < no-strict-error.patch
-      - name: Build kernel
+      - name: Build kernel image
         run: |
           cd kernel_platform/xiaomi/sm8450
           export PATH=$PWD/kernel_platform/clang/${CLANG_DIR}/bin:$PATH
@@ -77,7 +77,7 @@ jobs:
       - name: Upload kernel artifact
         uses: actions/upload-artifact@v4
         with:
-          name: aospa-vauxite-marble-kernel
+          name: kernel-image
           path: kernel_platform/device/xiaomi/marble-kernel/Image
           compression-level: 9
       - name: Upload module artifact
