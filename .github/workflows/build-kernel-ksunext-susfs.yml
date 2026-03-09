@@ -83,7 +83,7 @@ jobs:
           zip -r9 "../kernel.zip" *
 
           cd ..
-          git clone --depth=1 -b pzqqt https://github.com/bryanyee33/AnyKernel3.git AnyKernel3-pzqqt
+          git clone --depth=1 -b pzqqt https://github.com/alex18101985/AnyKernel3.git AnyKernel3-pzqqt
           cd AnyKernel3-pzqqt
           cp ../kernel_platform/device/xiaomi/marble-kernel/Image .
           cp ../kernel_platform/device/xiaomi/marble-kernel/dtbs/dtbo.img .
@@ -95,7 +95,7 @@ jobs:
           find . -type d -empty -delete
       - name: Generate release tag
         id: tag
-        run: echo "release_tag=AOSPA_KSU_GKI_$(date +'%Y.%m.%d')" >> "$GITHUB_OUTPUT"
+        run: echo "release_tag=AOSPA_GKI_KSUNext_SuSFS_$(date +'%Y.%m.%d_%H-%M')" >> "$GITHUB_OUTPUT"
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
