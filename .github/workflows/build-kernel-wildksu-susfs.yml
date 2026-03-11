@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 env:
   CLANG_DIR: clang-r510928
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
 jobs:
   build-kernel-wildksu-susfs:
     runs-on: ubuntu-22.04
