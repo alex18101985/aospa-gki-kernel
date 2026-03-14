@@ -3,24 +3,24 @@ on:
   workflow_dispatch:
 env:
   CLANG_DIR: clang-r510928
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+#  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   KBUILD_BUILD_USER: alex
   KBUILD_BUILD_HOST: github-build
 jobs:
   build-kernel-wildksu-susfs:
     runs-on: ubuntu-22.04
     steps:
-#      - name: Free disk space
-#        if: ${{ true }}
-#        uses: jlumbroso/free-disk-space@main
-#        with:
-#          tool-cache: true
-#          android: true
-#          dotnet: true
-#          haskell: true
-#          large-packages: true
-#          docker-images: true
-#          swap-storage: false
+      - name: Free disk space
+        if: ${{ true }}
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: false
       - name: Set swap space
         uses: pierotofy/set-swap-space@master
         with:
@@ -70,7 +70,7 @@ jobs:
         run: |
           cd kernel_platform/xiaomi/sm8450
           rm -rf Wild_KSU KernelSU kernelsu drivers/kernelsu
-          curl -LSs "https://raw.githubusercontent.com/WildKernels/Wild_KSU/wild/kernel/setup.sh" | bash -s 4e76373
+          curl -LSs "https://raw.githubusercontent.com/WildKernels/Wild_KSU/wild/kernel/setup.sh" | bash -s canary
       - name: Include SUSFS
         run: |
           HOME="$(pwd)"
@@ -111,7 +111,7 @@ jobs:
         id: tag
         run: echo "release_tag=AOSPA_Vauxite_GKI_WildKSU_SUSFS_$(date +'%Y.%m.%d_%H-%M')" >> "$GITHUB_OUTPUT"
       - name: Create release
-        uses: softprops/action-gh-release@v2.5.0
+        uses: softprops/action-gh-release@master
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
