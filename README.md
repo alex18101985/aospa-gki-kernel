@@ -3,7 +3,7 @@
 - Added Wild KSU
 - Added SUSFS
 - Added Westwood TCP (set as default)
-- Built with Clang r510928
+- Built with Clang r522817
 
 <p>&nbsp;</p>
 
