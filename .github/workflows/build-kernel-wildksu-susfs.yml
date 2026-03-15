@@ -1,4 +1,4 @@
-name: build-kernel-wildksu-susfs
+name: AOSPA Vauxite GKI Kernel (Wild KSU + SUSFS)
 on:
   workflow_dispatch:
 env:
