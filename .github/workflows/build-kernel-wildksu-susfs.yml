@@ -6,7 +6,7 @@ env:
   KBUILD_BUILD_USER: alex
   KBUILD_BUILD_HOST: github-build
 jobs:
-  build-kernel-wildksu-susfs:
+  build-kernel:
     runs-on: ubuntu-22.04
     steps:
       - name: Free disk space
